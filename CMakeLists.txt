@@ -105,9 +105,7 @@ load_cache(${MONERO_BUILD_DIR} READ_WITH_PREFIX monero_
 
 
 
-if (NOT (CMAKE_CXX_COMPILER STREQUAL monero_CMAKE_CXX_COMPILER))
-  message(FATAL_ERROR "Compiler for monero build differs from this project")
-endif()
+
 
 if ("${monero_UNBOUND_LIBRARIES}" STREQUAL "UNBOUND_LIBRARIES-NOTFOUND")
   unset(monero_UNBOUND_LIBRARIES)
