@@ -103,9 +103,7 @@ load_cache(${MONERO_BUILD_DIR} READ_WITH_PREFIX monero_
   ZMQ_LIB
 )
 
-if (NOT (monero_monero_SOURCE_DIR MATCHES "${MONERO_SOURCE_DIR}(/src/cryptonote_protocol)"))
-  message(FATAL_ERROR "Invalid Monero source dir - does not appear to match source used for build directory")
-endif()
+
 
 if (NOT (CMAKE_CXX_COMPILER STREQUAL monero_CMAKE_CXX_COMPILER))
   message(FATAL_ERROR "Compiler for monero build differs from this project")
@@ -149,7 +147,7 @@ foreach (LIB ${MONERO_LIBRARIES})
     set_target_properties(${LIB_NAME} PROPERTIES IMPORTED_LOCATION ${LIB_PATH})
     list(APPEND IMPORTED_MONERO_LIBRARIES "${LIB_NAME}")
   endif()
-  
+
   unset(LIB_PATH CACHE)
 endforeach()
 
